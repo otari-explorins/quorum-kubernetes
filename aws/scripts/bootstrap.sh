@@ -2,6 +2,7 @@
 #
 # Run as:
 # ./bootstrap.sh "AWS_REGION" "AWS_ACCOUNT" "CLUSTER_NAME" "AKS_NAMESPACE"
+# ./scripts/bootstrap.sh  "eu-west-3" "105457647445" "quorum-cluster" "kube_system"
 #
 
 set -eux
