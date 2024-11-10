@@ -5,6 +5,7 @@
 # ./scripts/bootstrap.sh  "eu-west-3" "105457647445" "quorum-cluster" "kube_system"
 #
 
+# Enables debugging (-x), exits on error (-e), and treats unset variables as an error (-u)
 set -eux
 
 AWS_REGION=${1:-rg}
@@ -17,16 +18,17 @@ echo "aws get-credentials ..."
 aws sts get-caller-identity
 aws eks --region "${AWS_REGION}" update-kubeconfig --name "${CLUSTER_NAME}"
 
-# helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
-# helm install --namespace kube-system --create-namespace csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
-# kubectl apply -f https://raw.githubusercontent.com/aws/secrets-store-csi-driver-provider-aws/main/deployment/aws-provider-installer.yaml 
+helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
+helm install --namespace kube-system --create-namespace csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
+kubectl apply -f https://raw.githubusercontent.com/aws/secrets-store-csi-driver-provider-aws/main/deployment/aws-provider-installer.yaml 
 
 # If you have deployed the above policy before, acquire its ARN:
 POLICY_ARN=$(aws iam list-policies --scope Local --query 'Policies[?PolicyName==`quorum-node-secrets-mgr-policy`].Arn' --output text)
 
 # echo policy arn value
-echo 'POLICY_ARN variable is: ' "$POLICY_ARN"
+# echo 'POLICY_ARN variable is: ' "$POLICY_ARN"
 
+# If the policy does not exist ($? -eq 1), it creates the policy with permissions to manage secrets in AWS Secrets Manager.
 if [ $? -eq 1 ] 
 then
   echo "Deploy the policy"
