@@ -23,6 +23,10 @@ aws eks --region "${AWS_REGION}" update-kubeconfig --name "${CLUSTER_NAME}"
 
 # If you have deployed the above policy before, acquire its ARN:
 POLICY_ARN=$(aws iam list-policies --scope Local --query 'Policies[?PolicyName==`quorum-node-secrets-mgr-policy`].Arn' --output text)
+
+# echo policy arn value
+echo 'POLICY_ARN variable is: ' "$POLICY_ARN"
+
 if [ $? -eq 1 ] 
 then
   echo "Deploy the policy"
