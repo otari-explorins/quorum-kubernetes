@@ -13,9 +13,9 @@ CLUSTER_NAME=${3:-cluster}
 # quourum
 AKS_NAMESPACE=${4:-quorum}
 
-# echo "aws get-credentials ..."
-# aws sts get-caller-identity
-# aws eks --region "${AWS_REGION}" update-kubeconfig --name "${CLUSTER_NAME}"
+echo "aws get-credentials ..."
+aws sts get-caller-identity
+aws eks --region "${AWS_REGION}" update-kubeconfig --name "${CLUSTER_NAME}"
 
 # helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
 # helm install --namespace kube-system --create-namespace csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
