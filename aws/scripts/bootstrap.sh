@@ -36,5 +36,5 @@ then
   }')
 fi
 
-eksctl create iamserviceaccount --name quorum-sa --namespace "${NAMESPACE}" --region="${AWS_REGION}" --cluster "${CLUSTER_NAME}" --attach-policy-arn "$POLICY_ARN" --approve --override-existing-serviceaccounts
+eksctl create iamserviceaccount --name quorum-sa --namespace "${AKS_NAMESPACE}" --region="${AWS_REGION}" --cluster "${CLUSTER_NAME}" --attach-policy-arn "$POLICY_ARN" --approve --override-existing-serviceaccounts
 echo "Done... "
