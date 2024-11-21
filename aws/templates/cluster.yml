@@ -32,8 +32,8 @@ vpc:
 
 managedNodeGroups:
   - name: ng-1
-    instanceType: m5.large
-    desiredCapacity: 6 # increase this capacity if you need member/rpc nodes or more validators
+    instanceType: m5.xlarge
+    desiredCapacity: 4 # increase this capacity if you need member/rpc nodes or more validators
     privateNetworking: true
     labels: { role: workers }
     # subnets:
