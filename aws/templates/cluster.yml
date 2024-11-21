@@ -4,7 +4,7 @@ kind: ClusterConfig
 
 metadata:
   name: quorum-cluster
-  region: eu-west-3
+  region: eu-west-1
   version: "1.30"
 
 # It is recommended that you let eksctl deploy a new VPC for your cluster, it will automatically tag the subnets with the appropriate tags. You may use an existing VPC if you wish but take note of the necessary subnet tags: https://github.com/weaveworks/eksctl/blob/main/examples/04-existing-vpc.yaml https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html
@@ -32,7 +32,7 @@ vpc:
 
 managedNodeGroups:
   - name: ng-1
-    instanceType: m5.xlarge
+    instanceType: m5.large
     desiredCapacity: 6 # increase this capacity if you need member/rpc nodes or more validators
     privateNetworking: true
     labels: { role: workers }

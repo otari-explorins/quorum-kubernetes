@@ -5,7 +5,7 @@ quorumFlags:
   removeKeysOnDelete: false
 
 cluster:
-  provider: aws  # choose from: local | aws | azure
+  provider: aws # choose from: local | aws | azure
   cloudNativeServices: false # set to true to use Cloud Native Services (SecretsManager and IAM for AWS; KeyVault & Managed Identities for Azure)
   reclaimPolicy: Delete # set to either Retain or Delete
 
@@ -13,7 +13,7 @@ aws:
   # the aws cli commands uses the name 'quorum-sa' so only change this if you altered the name
   serviceAccountName: quorum-sa
   # the region you are deploying to
-  region: eu-west-3
+  region: eu-west-1
 
 azure:
   serviceAccountName: quorum-sa
@@ -70,7 +70,7 @@ node:
       port: 8545
       corsDomain: "*"
       vHosts: "*"
-      api: "admin,db,eth,debug,miner,net,shh,txpool,personal,web3,quorum,istanbul"  
+      api: "admin,db,eth,debug,miner,net,shh,txpool,personal,web3,quorum,istanbul"
       authenticationEnabled: false
     ws:
       enabled: true

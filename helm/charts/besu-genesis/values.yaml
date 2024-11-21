@@ -4,14 +4,14 @@ quorumFlags:
   removeGenesisOnDelete: true
 
 cluster:
-  provider: aws  # choose from: local | aws | azure
+  provider: aws # choose from: local | aws | azure
   cloudNativeServices: false # set to true to use Cloud Native Services (SecretsManager and IAM for AWS; KeyVault & Managed Identities for Azure)
 
 aws:
   # the aws cli commands uses the name 'quorum-sa' so only change this if you altered the name
   serviceAccountName: quorum-sa
   # the region you are deploying to
-  region: eu-west-3
+  region: eu-west-1
 
 azure:
   serviceAccountName: quorum-sa
@@ -34,7 +34,7 @@ rawGenesisConfig:
         blockperiodseconds: 10
         epochlength: 30000
         requesttimeoutseconds: 20
-    gasLimit: '0xf7b760' 
+    gasLimit: '0xf7b760'
     difficulty: '0x1'
     coinbase: '0x0000000000000000000000000000000000000000'
   blockchain:
@@ -42,7 +42,6 @@ rawGenesisConfig:
       generate: true
       count: 4
     accountPassword: 'password'
-
 
 image:
   repository: consensys/quorum-k8s-hooks

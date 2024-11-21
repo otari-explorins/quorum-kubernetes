@@ -4,11 +4,11 @@ quorumFlags:
   privacy: false
   # this will erase keys - so be careful with this on validators
   removeKeysOnDelete: false
-  isBootnode: true    # set this to true if this node is a bootnode
+  isBootnode: true # set this to true if this node is a bootnode
   usesBootnodes: true # set this to true if the network you are connecting to use a bootnode/s that are deployed in the cluster 
 
 cluster:
-  provider: aws  # choose from: local | aws | azure
+  provider: aws # choose from: local | aws | azure
   cloudNativeServices: false # set to true to use Cloud Native Services (SecretsManager and IAM for AWS; KeyVault & Managed Identities for Azure)
   reclaimPolicy: Delete # set to either Retain or Delete
 
@@ -16,7 +16,7 @@ aws:
   # the aws cli commands uses the name 'quorum-sa' so only change this if you altered the name
   serviceAccountName: quorum-sa
   # the region you are deploying to
-  region: eu-west-3
+  region: eu-west-1
 
 azure:
   serviceAccountName: quorum-sa
@@ -99,7 +99,7 @@ node:
       host: "0.0.0.0"
       port: 9545
       # enable if using prometheus-stack metrics monitoring
-      serviceMonitorEnabled: false      
+      serviceMonitorEnabled: false
     metricsPush:
       enabled: false
       host: "5.5.5.5"
@@ -125,7 +125,7 @@ node:
         address: "0x0000000000000000000000000000000000009999"
       accountsContract:
         enabled: false
-        address: "0x0000000000000000000000000000000000008888"  
+        address: "0x0000000000000000000000000000000000008888"
 
   tessera:
     resources:
@@ -156,4 +156,3 @@ image:
     repository: consensys/quorum-k8s-hooks
     tag: qgt-0.2.18
     pullPolicy: IfNotPresent
-

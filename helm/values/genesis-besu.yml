@@ -3,14 +3,14 @@ quorumFlags:
   removeGenesisOnDelete: true
 
 cluster:
-  provider: aws  # choose from: local | aws | azure
-  cloudNativeServices: false 
+  provider: aws # choose from: local | aws | azure
+  cloudNativeServices: false
 
 aws:
   # the aws cli commands uses the name 'quorum-sa' so only change this if you altered the name
   serviceAccountName: quorum-sa
   # the region you are deploying to
-  region: eu-west-3
+  region: eu-west-1
 
 azure:
   serviceAccountName: quorum-sa
