@@ -23,9 +23,9 @@ metadata:
     #   rewrite (?i)/kibana/(.*) /$1 break;
     #   rewrite (?i)/kibana$ / break;
     nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/whitelist-source-range: 12.23.34.45/32
+    #nginx.ingress.kubernetes.io/whitelist-source-range: w.x.y.z/32,a.b.c.d/32
     # restrict access to cluster only from PERS dns
-    # nginx.ingress.kubernetes.io/server-alias: "api.pers.ninja, dev.api.pers.ninja"
+    nginx.ingress.kubernetes.io/server-alias: "pers.ninja, api.pers.ninja, dev.api.pers.ninja"
 
 spec:
   ingressClassName: network-nginx
