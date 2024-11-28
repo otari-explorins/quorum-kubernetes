@@ -27,6 +27,7 @@ metadata:
     # restrict access to cluster only from PERS dns
     # nginx.ingress.kubernetes.io/server-alias: "pers.ninja, api.pers.ninja, dev.api.pers.ninja"
     nginx.ingress.kubernetes.io/limit-connections: "50"
+    nginx.ingress.kubernetes.io/limit-rps: "50"
 
 spec:
   ingressClassName: network-nginx
