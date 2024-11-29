@@ -28,10 +28,11 @@ metadata:
     # nginx.ingress.kubernetes.io/server-alias: "pers.ninja, api.pers.ninja, dev.api.pers.ninja"
     nginx.ingress.kubernetes.io/limit-connections: "10"
     nginx.ingress.kubernetes.io/limit-rps: "10"
-    nginx.ingress.kubernetes.io/auth-type: jwt
-    nginx.ingress.kubernetes.io/auth-secret: jwt-secret
-    nginx.ingress.kubernetes.io/auth-realm: "Authentication Required"
-    nginx.ingress.kubernetes.io/auth-token-signing-key: /gasagebi/publicRSAKey.pem
+
+    # nginx.ingress.kubernetes.io/auth-type: jwt
+    # nginx.ingress.kubernetes.io/auth-secret: jwt-secret
+    # nginx.ingress.kubernetes.io/auth-realm: "Authentication Required"
+    # nginx.ingress.kubernetes.io/auth-token-signing-key: /gasagebi/publicRSAKey.pem
 
 spec:
   ingressClassName: network-nginx
