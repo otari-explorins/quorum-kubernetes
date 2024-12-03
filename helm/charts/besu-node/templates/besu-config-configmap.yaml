@@ -48,11 +48,7 @@ data:
     rpc-http-api={{ .Values.node.besu.rpc.api }}
     rpc-http-cors-origins={{ .Values.node.besu.rpc.corsOrigins }}
     rpc-http-authentication-enabled={{ .Values.node.besu.rpc.authenticationEnabled }}
-    # log rpc_http_auth_jwt_public_key_file variable as string literal
-    rpc-http-authentication-jwt-public-key-file="/home/cloudshell-user/quorum-kubernetes/helm/charts/besu-node/publicRSAKey.pem"
-    {{- if .Values.node.besu.rpc.authenticationEnabled }}
-    echo "rpc_http_auth_jwt_public_key_file path: /home/cloudshell-user/quorum-kubernetes/helm/charts/besu-node/publicRSAKey.pem"
-    {{- end }}
+    # rpc-http-authentication-jwt-public-key-file="/home/cloudshell-user/quorum-kubernetes/helm/charts/besu-node/publicRSAKey.pem"
     rpc-http-max-active-connections={{ .Values.node.besu.rpc.maxActiveConnections }}
     revert-reason-enabled=true
     {{ end }}
