@@ -41,8 +41,8 @@ metadata:
     #                                                       naX0svhefmdUI0N4WoUkwT1ZFmHv1Col9MvXElDZeNaD/VHha7mvq/JkqU4lJ7Cq
     #                                                       4QIDAQAB
     #                                                       -----END PUBLIC KEY-----'
-    rpc-http-authentication-enabled: "true"
-    rpc-http-authentication-jwt-public-key-file: "/gasagebi/publicRSAKey.pem"
+    # rpc-http-authentication-enabled: "true"
+    # rpc-http-authentication-jwt-public-key-file: "/gasagebi/publicRSAKey.pem"
 
 
 spec:
