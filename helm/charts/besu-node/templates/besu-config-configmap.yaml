@@ -48,7 +48,7 @@ data:
     rpc-http-api={{ .Values.node.besu.rpc.api }}
     rpc-http-cors-origins={{ .Values.node.besu.rpc.corsOrigins }}
     rpc-http-authentication-enabled={{ .Values.node.besu.rpc.authenticationEnabled }}
-    rpc-http-authentication-jwt-public-key-file="../publicRSAKey.pem"
+    rpc-http-authentication-jwt-public-key-file={{ .Values.node.besu.rpc.public_key | quote }}
     rpc-http-max-active-connections={{ .Values.node.besu.rpc.maxActiveConnections }}
     revert-reason-enabled=true
     {{ end }}

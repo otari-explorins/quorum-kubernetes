@@ -9,3 +9,12 @@ helm upgrade validator-1 ./charts/besu-node --namespace quorum --values ./values
 helm upgrade validator-2 ./charts/besu-node --namespace quorum --values ./values/validator.yml
 helm upgrade validator-3 ./charts/besu-node --namespace quorum --values ./values/validator.yml
 helm upgrade validator-4 ./charts/besu-node --namespace quorum --values ./values/validator.yml
+
+# spin up a besu and tessera node pair
+helm upgrade member-1 ./charts/besu-node --namespace quorum --values ./values/txnode.yml
+
+# spin up a quorum rpc node
+helm upgrade rpc-1 ./charts/besu-node --namespace quorum --values ./values/reader.yml
+
+helm upgrade genesis ./charts/besu-genesis --namespace quorum --create-namespace --values ./values/genesis-besu.yml
+
