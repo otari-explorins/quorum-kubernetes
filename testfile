@@ -18,3 +18,13 @@ helm upgrade rpc-1 ./charts/besu-node --namespace quorum --values ./values/reade
 
 helm upgrade genesis ./charts/besu-genesis --namespace quorum --create-namespace --values ./values/genesis-besu.yml
 
+helm upgrade member-1 ./charts/besu-node --namespace quorum --values ./values/txnode.yml
+
+helm upgrade rpc-1 ./charts/besu-node --namespace quorum --values ./values/reader.yml
+
+helm lint ./charts/besu-node
+
+helm template ./charts/besu-node --namespace quorum --values ./values/validator.yml
+
+helm upgrade validator-1 ./charts/besu-node --namespace quorum --values ./values/validator.yml --dry-run --debug
+
