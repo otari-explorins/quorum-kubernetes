@@ -78,18 +78,10 @@ node:
       port: 8545
       api: '["DEBUG","ETH", "ADMIN", "WEB3", "IBFT", "NET", "TRACE", "EEA", "PRIV", "QBFT", "PERM", "TXPOOL"]'
       corsOrigins: '["all"]'
-      authenticationEnabled: false
+      authenticationEnabled: true
       # Number of allowed active RPC connections for Besu node
       maxActiveConnections: 80
-      public_key: "-----BEGIN PUBLIC KEY-----
-                    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmsn7vjTOrbQguwmGhXLd
-                    1JL0rJCk3hBjU9RVwUQetsWslLEQ9zioIR2O9PIiuhMgHigaix/Y5Y/Trida/mvP
-                    LPPhio1EcQoL73kdaP4yMRVmKY0kKnxO0tfOE4Oellrk82KqHvRdZjY71Gy2I2ke
-                    rwx3qY+7q7FgPRlz71WjO/lPXXrs7ZZtGrjvttRq9jnS9s2SkSjIQPnvPKDHJdci
-                    4aMWvVPheNRa/+1WIXgYuzmO3er1PMeuPBmyFgqgVLD7nv2inpM1Scaceh6xIlvq
-                    naX0svhefmdUI0N4WoUkwT1ZFmHv1Col9MvXElDZeNaD/VHha7mvq/JkqU4lJ7Cq
-                    4QIDAQAB
-                    -----END PUBLIC KEY-----"
+      public_key: "https://s3.filebin.net/filebin/c7a140ca9dd2896d603e00207753e88e5498b66ac4bf4ebbc0075e8d0a20c6fb/c9c825470693ae623a0947d8912a44b9062d3f5e87d6267ff4ad37b78df90a1c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=7pMj6hGeoKewqmMQILjm%2F20241204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241204T125954Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&response-cache-control=max-age%3D60&response-content-disposition=filename%3D%22publicRSAKey.pem%22&response-content-type=text%2Fplain%3B%20charset%3Dutf-8&X-Amz-Signature=9946fc524938dfe607d969c97df278c685cda576cb0ec1d8512a5d2fbf16c656"
     ws:
       enabled: true
       host: "0.0.0.0"

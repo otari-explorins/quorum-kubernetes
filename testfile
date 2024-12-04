@@ -28,3 +28,10 @@ helm template ./charts/besu-node --namespace quorum --values ./values/validator.
 
 helm upgrade validator-1 ./charts/besu-node --namespace quorum --values ./values/validator.yml --dry-run --debug
 
+
+
+kubectl exec -n quorum  --stdin --tty pod/besu-node-validator-4-0 -- /bin/bash
+
+
+besu --rpc-http-enabled=true --rpc-http-authentication-enabled=true --rpc-http-authentication-jwt-public-key-file=publicKey.pem
+
