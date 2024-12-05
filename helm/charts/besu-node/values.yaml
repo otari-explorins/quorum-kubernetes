@@ -81,7 +81,7 @@ node:
       authenticationEnabled: true
       # Number of allowed active RPC connections for Besu node
       maxActiveConnections: 80
-      public_key: "https://ragaca-bucket.s3.eu-west-1.amazonaws.com/publicRSAKey.txt"
+      public_key: "/public_keys/public.pem"
     ws:
       enabled: true
       host: "0.0.0.0"
