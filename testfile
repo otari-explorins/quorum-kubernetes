@@ -32,4 +32,9 @@ helm upgrade validator-1 ./charts/besu-node --namespace quorum --values ./values
 
 kubectl exec -n quorum  --stdin --tty pod/besu-node-validator-4-0 -- /bin/bash
 
+helm upgrade member-1 ./charts/besu-node --namespace quorum --values ./values/txnode.yml
+
+helm upgrade rpc-1 ./charts/besu-node --namespace quorum --values ./values/reader.yml
+
+
 
