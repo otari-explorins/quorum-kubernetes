@@ -23,6 +23,6 @@ maintainers:
 icon: http://besu.hyperledger.org/en/latest/favicon.ico
 dependencies:
   - name: postgresql
-    version: "10.14.2"
+    version: "15.5.38"
     repository: "https://charts.bitnami.com/bitnami"
     condition: postgresql.enabled
