@@ -80,4 +80,27 @@ k logs quorum-network-ingress-ingress-nginx-controller-76b4644d8btl7qk  -f
 sudo netstat -tulpn | grep LISTEN
 
 
+12.12 commands
+
+helm upgrade rpc-1 ./charts/besu-node --namespace quorum --values ./values/reader.yml
+k delete pod besu-node-rpc-1-0
+
+helm upgrade bootnode-1 ./charts/besu-node --namespace quorum --values ./values/bootnode.yml
+k delete pod besu-node-bootnode-1-0
+k delete pod besu-node-bootnode-2-0
+
+helm upgrade validator-1 ./charts/besu-node --namespace quorum --values ./values/validator.yml
+k delete pod besu-node-validator-1-0
+k delete pod besu-node-validator-2-0
+k delete pod besu-node-validator-3-0
+k delete pod besu-node-validator-4-0
+
+helm upgrade member-1 ./charts/besu-node --namespace quorum --values ./values/txnode.yml
+k delete pod besu-node-member-1-0
+
+after installing blockscout:
+export POD_NAME=$(kubectl get pods --namespace quorum -l "app.kubernetes.io/name=blockscout,app.kubernetes.io/instance=my-blockscout" -o jsonpath="{.items[0].metadata.name}")
+export CONTAINER_PORT=$(kubectl get pod --namespace quorum $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
+echo "Visit http://127.0.0.1:8080 to use your application"
+kubectl --namespace quorum port-forward $POD_NAME 8080:$CONTAINER_PORT
 
