@@ -28,13 +28,56 @@ helm template ./charts/besu-node --namespace quorum --values ./values/validator.
 
 helm upgrade validator-1 ./charts/besu-node --namespace quorum --values ./values/validator.yml --dry-run --debug
 
-
-
 kubectl exec -n quorum  --stdin --tty pod/besu-node-validator-4-0 -- /bin/bash
 
 helm upgrade member-1 ./charts/besu-node --namespace quorum --values ./values/txnode.yml
 
 helm upgrade rpc-1 ./charts/besu-node --namespace quorum --values ./values/reader.yml
+
+
+kubectl run nginx --image=nginx --namespace=quorum
+
+update and delete pod/besu-node-bootnode-1-0
+update and delete pod/besu-node-bootnode-2-0
+update and delete quorum-monitoring-ingress-ingress-nginx-controller-56b4b57cnbzm
+helm delete blockscout ./charts/blockscout --namespace quorum 
+helm delete kibana
+helm delete elasticsearch
+helm delete filebeat
+helm delete quorum-monitoring-ingress
+helm upgrade member-1 ./charts/besu-node --namespace quorum --values ./values/txnode.yml
+k delete pod/besu-node-member-1-0
+helm upgrade rpc-1 ./charts/besu-node --namespace quorum --values ./values/reader.yml
+k delete pod/besu-node-rpc-1-0
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm install quorum-monitoring-ingress ingress-nginx/ingress-nginx \ (+ all the parameters)
+kubectl apply -f ../ingress/ingress-rules-monitoring.yml
+helm dependency update ./charts/blockscout
+helm install blockscout ./charts/blockscout --namespace quorum --values ./values/blockscout-besu.yml
+helm upgrade blockscout ./charts/blockscout --namespace quorum --values ./values/blockscout-besu.yml
+helm delete blockscout
+helm install filebeat --version 7.17.1 elastic/filebeat  --namespace quorum --values ./values/filebeat.yml
+helm repo add elastic https://helm.elastic.co
+helm repo update
+helm install elasticsearch --version 7.17.1 elastic/elasticsearch --namespace quorum --create-namespace --values ./values/elasticsearch.yml
+
+
+
+kubectl config set-context --current --namespace=quorum
+k delete pod besu-node-validator-1-0 -n quorum
+k delete pod besu-node-validator-2-0 -n quorum
+k delete pod besu-node-validator-3-0 -n quorum
+k delete pod besu-node-validator-4-0 -n quorum
+helm upgrade quorum-explorer ./charts/explorer --namespace quorum --create-namespace --values ./values/explorer-besu.yaml
+
+
+k logs nginx                                                            -f 
+k logs quorum-explorer-d86bbd689-dwl2w                                  -f 
+k logs quorum-monitoring-ingress-ingress-nginx-controller-56b4b57nwlq6  -f 
+k logs quorum-network-ingress-ingress-nginx-controller-76b4644d8btl7qk  -f 
+
+sudo netstat -tulpn | grep LISTEN
 
 
 
