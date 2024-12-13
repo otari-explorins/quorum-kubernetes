@@ -29,20 +29,7 @@ metadata:
     nginx.ingress.kubernetes.io/limit-connections: "10"
     nginx.ingress.kubernetes.io/limit-rps: "10"
 
-    # nginx.ingress.kubernetes.io/auth-type: jwt
-    # nginx.ingress.kubernetes.io/auth-secret: jwt-secret
-    # nginx.ingress.kubernetes.io/auth-realm: "Authentication Required"
-    # nginx.ingress.kubernetes.io/auth-token-signing-key: '-----BEGIN PUBLIC KEY-----
-    #                                                       MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmsn7vjTOrbQguwmGhXLd
-    #                                                       1JL0rJCk3hBjU9RVwUQetsWslLEQ9zioIR2O9PIiuhMgHigaix/Y5Y/Trida/mvP
-    #                                                       LPPhio1EcQoL73kdaP4yMRVmKY0kKnxO0tfOE4Oellrk82KqHvRdZjY71Gy2I2ke
-    #                                                       rwx3qY+7q7FgPRlz71WjO/lPXXrs7ZZtGrjvttRq9jnS9s2SkSjIQPnvPKDHJdci
-    #                                                       4aMWvVPheNRa/+1WIXgYuzmO3er1PMeuPBmyFgqgVLD7nv2inpM1Scaceh6xIlvq
-    #                                                       naX0svhefmdUI0N4WoUkwT1ZFmHv1Col9MvXElDZeNaD/VHha7mvq/JkqU4lJ7Cq
-    #                                                       4QIDAQAB
-    #                                                       -----END PUBLIC KEY-----'
-    # rpc-http-authentication-enabled: "true"
-    # rpc-http-authentication-jwt-public-key-file: "/gasagebi/publicRSAKey.pem"
+    nginx.ingress.kubernetes.io/enable-access-log: "true"
 
 
 spec:
