@@ -78,7 +78,7 @@ node:
       port: 8545
       api: '["DEBUG","ETH", "ADMIN", "WEB3", "IBFT", "NET", "TRACE", "EEA", "PRIV", "QBFT", "PERM", "TXPOOL"]'
       corsOrigins: '["all"]'
-      authenticationEnabled: true
+      authenticationEnabled: false
       # Number of allowed active RPC connections for Besu node
       maxActiveConnections: 80
       public_key: "/opt/besu/public.pem"
