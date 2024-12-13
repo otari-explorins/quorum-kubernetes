@@ -143,3 +143,4 @@ k delete pod besu-node-validator-4-0
 helm upgrade bootnode-2 ./charts/besu-node --namespace quorum --values ./values/bootnode.yml
 k delete pod besu-node-bootnode-2-0
 
+helm delete member-1
