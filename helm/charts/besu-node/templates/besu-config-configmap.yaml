@@ -51,7 +51,6 @@ data:
     rpc-http-authentication-jwt-public-key-file={{ .Values.node.besu.rpc.public_key | quote }}
     rpc-http-max-active-connections={{ .Values.node.besu.rpc.maxActiveConnections }}
     revert-reason-enabled=true
-    logging="DEBUG"
     {{ end }}
 
     {{ if  .Values.node.besu.graphql.enabled -}}

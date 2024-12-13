@@ -60,7 +60,7 @@ node:
     keysPath: "/keys"
     privateKeyPath: "/keys/nodekey"
     genesisFilePath: "/etc/genesis/genesis.json"
-    logging: INFO
+    logging: DEBUG
     customLabels: {}
     account:
       password: 'password'
