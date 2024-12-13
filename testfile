@@ -133,3 +133,8 @@ removing JWT auth works after upgrading the rpc-1 node
 
 # helm upgrade member-1 ./charts/besu-node --namespace quorum --values ./values/txnode.yml
 # k delete pod besu-node-member-1-0
+
+upgrade ingress with logging verbosity
+
+kubectl apply -f ../ingress/ingress-rules-besu.yml
+

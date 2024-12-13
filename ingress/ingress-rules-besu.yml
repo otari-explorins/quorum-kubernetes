@@ -30,6 +30,7 @@ metadata:
     nginx.ingress.kubernetes.io/limit-rps: "10"
 
     nginx.ingress.kubernetes.io/enable-access-log: "true"
+    nginx.ingress.kubernetes.io/enable-rewrite-log: "true"
 
 
 spec:
