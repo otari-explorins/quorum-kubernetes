@@ -2,7 +2,7 @@
 #
 # Run as:
 # ./bootstrap.sh "AWS_REGION" "AWS_ACCOUNT" "CLUSTER_NAME" "AKS_NAMESPACE"
-# ./scripts/bootstrap.sh  "eu-west-1" "105457647445" "quorum-cluster" "kube-system"
+# ./scripts/bootstrap.sh  "sa-east-1" "105457647445" "quorum-cluster" "kube-system"
 #
 
 # Enables debugging (-x), exits on error (-e), and treats unset variables as an error (-u)
@@ -28,8 +28,8 @@ POLICY_ARN=$(aws iam list-policies --scope Local --query 'Policies[?PolicyName==
 # echo policy arn value
 # echo 'POLICY_ARN variable is: ' "$POLICY_ARN"
 
-# If the policy does not exist ($? -eq 1), it creates the policy with permissions to manage secrets in AWS Secrets Manager.
-if [ $? -eq 1 ] 
+# If the policy does not exist ($? -eq 0), it creates the policy with permissions to manage secrets in AWS Secrets Manager.
+if [ $? -eq 0 ] 
 then
   echo "Deploy the policy"
   POLICY_ARN=$(aws --region $AWS_REGION --query Policy.Arn --output text iam create-policy --policy-name quorum-node-secrets-mgr-policy --policy-document '{
