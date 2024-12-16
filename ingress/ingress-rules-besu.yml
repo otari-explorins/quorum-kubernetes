@@ -32,6 +32,11 @@ metadata:
     nginx.ingress.kubernetes.io/enable-access-log: "true"
     nginx.ingress.kubernetes.io/enable-rewrite-log: "true"
 
+    nginx.ingress.kubernetes.io/server-snippet: |
+      if ($request_method !~ ^(GET)$ ) {
+        return 405;
+      }
+
 
 spec:
   ingressClassName: network-nginx
