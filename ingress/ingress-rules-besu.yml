@@ -33,10 +33,14 @@ metadata:
     nginx.ingress.kubernetes.io/enable-rewrite-log: "true"
 
     nginx.ingress.kubernetes.io/server-snippet: |
-      if ($request_method !~ ^(GET)$ ) {
+      if ($request_method !~ ^(GET|POST)$ ) {
         return 405;
       }
-
+      if ($request_method = "POST") {
+        if ($http_x_user_number != "12345") {
+          return 403;
+        }
+      }
 
 spec:
   ingressClassName: network-nginx
