@@ -2,7 +2,7 @@
 #
 # Run as:
 # ./bootstrap.sh "AWS_REGION" "AWS_ACCOUNT" "CLUSTER_NAME" "AKS_NAMESPACE"
-# ./scripts/bootstrap.sh  "sa-east-1" "105457647445" "quorum-cluster" "kube-system"
+# ./scripts/bootstrap.sh  "eu-central-1" "105457647445" "quorum-cluster" "kube-system"
 #
 
 # Enables debugging (-x), exits on error (-e), and treats unset variables as an error (-u)
@@ -32,14 +32,27 @@ POLICY_ARN=$(aws iam list-policies --scope Local --query 'Policies[?PolicyName==
 if [ $? -eq 0 ] 
 then
   echo "Deploy the policy"
-  POLICY_ARN=$(aws --region $AWS_REGION --query Policy.Arn --output text iam create-policy --policy-name quorum-node-secrets-mgr-policy --policy-document '{
+  POLICY_ARN=$(aws --region $AWS_REGION iam create-policy --policy-name quorum-node-secrets-mgr-policy --policy-document '{
       "Version": "2012-10-17",
-      "Statement": [ {
+      "Statement": [
+        {
           "Effect": "Allow",
-          "Action": ["secretsmanager:CreateSecret","secretsmanager:UpdateSecret","secretsmanager:DescribeSecret","secretsmanager:GetSecretValue","secretsmanager:PutSecretValue","secretsmanager:ReplicateSecretToRegions","secretsmanager:TagResource"],
-          "Resource": ["arn:aws:secretsmanager:$AWS_REGION:$AWS_ACCOUNT:secret:goquorum-node-*", "arn:aws:secretsmanager:$AWS_REGION:$AWS_ACCOUNT:secret:besu-node-*"]
-      } ]
-  }')
+          "Action": [
+            "secretsmanager:CreateSecret",
+            "secretsmanager:UpdateSecret",
+            "secretsmanager:DescribeSecret",
+            "secretsmanager:GetSecretValue",
+            "secretsmanager:PutSecretValue",
+            "secretsmanager:ReplicateSecretToRegions",
+            "secretsmanager:TagResource"
+          ],
+          "Resource": [
+            "arn:aws:secretsmanager:'"$AWS_REGION"':'"$AWS_ACCOUNT"':secret:goquorum-node-*",
+            "arn:aws:secretsmanager:'"$AWS_REGION"':'"$AWS_ACCOUNT"':secret:besu-node-*"
+          ]
+        }
+      ]
+  }' --query Policy.Arn --output text)
 fi
 
 eksctl create iamserviceaccount --name quorum-sa --namespace "${AKS_NAMESPACE}" --region="${AWS_REGION}" --cluster "${CLUSTER_NAME}" --attach-policy-arn "$POLICY_ARN" --approve --override-existing-serviceaccounts
