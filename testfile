@@ -145,7 +145,7 @@ k delete pod besu-node-bootnode-2-0
 
 helm delete member-1
 
-curl -v -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://http://a9318737b9e2544f19c915f2b7dcc109-1287180136.eu-west-1.elb.amazonaws.com//rpc
+curl -v -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://http://a9318737b9e2544f19c915f2b7dcc109-1287180136.eu-central-1.elb.amazonaws.com//rpc
 
 helm upgrade bootnode-1 ./charts/besu-node --namespace quorum --values ./values/bootnode.yml
 k delete pod besu-node-bootnode-1-0

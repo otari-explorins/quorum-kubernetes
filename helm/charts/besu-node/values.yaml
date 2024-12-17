@@ -16,7 +16,7 @@ aws:
   # the aws cli commands uses the name 'quorum-sa' so only change this if you altered the name
   serviceAccountName: quorum-sa
   # the region you are deploying to
-  region: eu-west-1
+  region: eu-central-1
 
 azure:
   serviceAccountName: quorum-sa
@@ -43,8 +43,8 @@ storage:
 
 # fixes permissions of volumes becuase besu runs as user `besu` and volumes prefer `root`
 volumePermissionsFix:
-  - local
-  - aws
+- local
+- aws
 
 node:
   besu:
@@ -117,10 +117,10 @@ node:
       filePath: ""
       nodes:
         enabled: false
-        allowlist: ["enode://abcd..@1.2.3.3:30303","enode://efba..@1.2.3.4:besu-node-bootnode-1-0.besu-node-bootnode-1.besu.svc.cluster.local:30303"]
+        allowlist: [ "enode://abcd..@1.2.3.3:30303", "enode://efba..@1.2.3.4:besu-node-bootnode-1-0.besu-node-bootnode-1.besu.svc.cluster.local:30303" ]
       accounts:
         enabled: false
-        allowlist: ["0x0000000000000000000000000000000000008888"]
+        allowlist: [ "0x0000000000000000000000000000000000008888" ]
       nodesContract:
         enabled: false
         address: "0x0000000000000000000000000000000000009999"
