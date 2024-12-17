@@ -13,7 +13,8 @@ postgresql:
   initdbPassword: postgres
   enabled: true
 
-blockscout: # cpu dependent
+blockscout:
+  # cpu dependent
   resources:
     cpuLimit: 0.7
     cpuRequest: 0.5
@@ -25,7 +26,7 @@ blockscout: # cpu dependent
   postgres_user: postgres
   network: quorum
   subnetwork: consensys
-  chain_id: 1337
+  chain_id: 39123
   coin: eth
   ethereum_jsonrpc_variant: besu
   ethereum_jsonrpc_transport: http

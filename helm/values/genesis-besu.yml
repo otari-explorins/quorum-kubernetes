@@ -27,7 +27,7 @@ azure:
 rawGenesisConfig:
   genesis:
     config:
-      chainId: 1337
+      chainId: 39123
       algorithm:
         consensus: qbft # choose from: ibft2 | qbft | clique
         blockperiodseconds: 5

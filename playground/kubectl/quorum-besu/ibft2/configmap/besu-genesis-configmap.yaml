@@ -9,7 +9,7 @@ data:
   genesis.json: |-
     {
       "config": {
-        "chainId": 1337,
+        "chainId": 39123,
         "constantinoplefixblock": 0,
         "ibft2": {
           "blockperiodseconds": 2,
