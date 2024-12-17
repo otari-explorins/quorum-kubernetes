@@ -274,13 +274,13 @@ spec:
           - |
             exec
             echo '-----BEGIN PUBLIC KEY-----
-            MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmsn7vjTOrbQguwmGhXLd
-            1JL0rJCk3hBjU9RVwUQetsWslLEQ9zioIR2O9PIiuhMgHigaix/Y5Y/Trida/mvP
-            LPPhio1EcQoL73kdaP4yMRVmKY0kKnxO0tfOE4Oellrk82KqHvRdZjY71Gy2I2ke
-            rwx3qY+7q7FgPRlz71WjO/lPXXrs7ZZtGrjvttRq9jnS9s2SkSjIQPnvPKDHJdci
-            4aMWvVPheNRa/+1WIXgYuzmO3er1PMeuPBmyFgqgVLD7nv2inpM1Scaceh6xIlvq
-            naX0svhefmdUI0N4WoUkwT1ZFmHv1Col9MvXElDZeNaD/VHha7mvq/JkqU4lJ7Cq
-            4QIDAQAB
+            MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzU0hsecj7mv+I/zZTDL1
+            cxZutZQfO+PM8Q6Jq0x7+wwR6KObxUHhHBaizuLRRZrR2KpUaZuqwJLxCwNPoZbs
+            HHx9n87e+dP9nq4C4uA2I+ibkrqjZgS8NofLWmZ9DXjI8HPUhBxgdN9j6a+nbCPg
+            myfP8UELgTteyCFhnLmrL6nNR3uVDgMGPepL8LZeeaU15pnwnqwZfcm19U/M5c9h
+            apNeAmh/L+Zda647aXIOBdSWf/vPiHCGyd9/XBLzRNmVBcjWHDDOoL/40j4R/Jhv
+            TDUJwYGVf2Z3wZ8i/Lk3rNWU7EZ2kygkRwB99uI/SpUHRuCIr1DKREpERgyudZjF
+            7QIDAQAB
             -----END PUBLIC KEY-----' > /opt/besu/public.pem 
             /opt/besu/bin/besu \
               --config-file=/etc/besu/config.toml \
