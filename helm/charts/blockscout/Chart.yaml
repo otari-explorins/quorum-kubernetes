@@ -21,8 +21,8 @@ maintainers:
   - name: Eric Lin
     email: eric.lin@consensys.net
 icon: http://besu.hyperledger.org/en/latest/favicon.ico
-# dependencies:
-#   - name: postgresql
-#     version: "15.5.38"
-#     repository: "https://charts.bitnami.com/bitnami"
-#     condition: postgresql.enabled
+dependencies:
+  - name: postgresql
+    version: "15.5.38"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: postgresql.enabled

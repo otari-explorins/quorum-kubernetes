@@ -20,8 +20,10 @@ blockscout:
     cpuRequest: 0.5
     memLimit: "2G"
     memRequest: "1G"
-  port: 4000
-  database_url: "ecto://postgres:postgres@blockscout-postgresql/postgres?ssl=false"
+  # port: 4000
+  port: 5432
+  # database_url: "ecto://postgres:postgres@blockscout-postgresql/postgres?ssl=false"
+  database_url: "besu-postgres.ctwgr32c2ir3.eu-west-1.rds.amazonaws.com"
   postgres_password: postgres
   postgres_user: postgres
   network: quorum
