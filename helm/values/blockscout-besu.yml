@@ -12,6 +12,7 @@ postgresql:
   initdbUser: postgres
   initdbPassword: postgres
   enabled: true
+  password: postgres
 
 blockscout:
   # cpu dependent
