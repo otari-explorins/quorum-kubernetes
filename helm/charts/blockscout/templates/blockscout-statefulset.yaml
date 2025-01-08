@@ -86,11 +86,7 @@ spec:
           - name: DATABASE_URL
             value: {{ .Values.blockscout.database_url }}
           - name: POSTGRES_PASSWORD
-            # value: {{ .Values.blockscout.postgres_password }}
-            valueFrom:
-                secretKeyRef:
-                  name: {{ template "postgresql.secretName" . }}
-                  key: postgresql-password
+            value: {{ .Values.blockscout.postgres_password }}
           - name: POSTGRES_USER
             value: {{ .Values.blockscout.postgres_user }}
           - name: NETWORK
