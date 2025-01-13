@@ -2,7 +2,8 @@
 image:
   blockscout:
     repository: consensys/blockscout
-    tag: v4.0.0-beta
+    # tag: v4.0.0-beta
+    tag: v4.1.5-beta
     pullPolicy: IfNotPresent
 
 postgresql:
