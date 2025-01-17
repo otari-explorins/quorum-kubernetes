@@ -87,9 +87,9 @@ ingress:
     nginx.ingress.kubernetes.io/rewrite-target: /
   # -- Ingress host
   hosts:
-    - host: blockscout.example.com
+    - host: a1664b515b51d4257aea9160bb233e8c-889390499.eu-central-1.elb.amazonaws.com
       paths:
-        - path: /
+        - path: /blockscout-new
           pathType: Prefix
           backend:
             service:
