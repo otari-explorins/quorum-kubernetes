@@ -82,32 +82,18 @@ ingress:
   # -- Ingress resource for the HTTP API
   enabled: false
   # -- Annotations for Ingress
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    # nginx.ingress.kubernetes.io/configuration-snippet: |
-    #   more_set_headers "Referrer-Policy: no-referrer-when-downgrade";
-    nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
-    nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
-    nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range"
-    nginx.ingress.kubernetes.io/cors-expose-headers: "Content-Length,Content-Range"
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
   # -- Ingress host
   hosts:
-    - host: a1664b515b51d4257aea9160bb233e8c-889390499.eu-central-1.elb.amazonaws.com
-      paths:
-        - path: /blockscout-besu
-          pathType: Prefix
-          backend:
-            service:
-              name: blockscout
-              port:
-                number: 4000
+    - host: chart-example.local
+      paths: []
   # -- Ingress TLS
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
-  #      - blockscout.example.com
+  #      - chart-example.local
 
 service:
   # -- Service type
