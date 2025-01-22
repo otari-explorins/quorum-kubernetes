@@ -23,4 +23,4 @@ name: blockscout
 sources:
 - https://github.com/blockscout/blockscout/
 type: application
-version: 0.2.2
+version: 0.2.3
