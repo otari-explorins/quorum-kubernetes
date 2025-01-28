@@ -1,0 +1,13 @@
+FROM alpine:latest
+
+# Install necessary tools
+RUN apk add --no-cache bash tar aws-cli
+
+# Copy backup script
+COPY backup.sh /backup.sh
+
+# Set the script as executable
+RUN chmod +x /backup.sh
+
+# Set the entrypoint
+ENTRYPOINT ["/backup.sh"]
