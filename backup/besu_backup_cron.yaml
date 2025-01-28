@@ -9,6 +9,7 @@ spec:
     spec:
       template:
         spec:
+          serviceAccountName: pod-access-sa
           containers:
           - name: backup
             image: otariexplorins/my-backup-image
