@@ -1,13 +1,16 @@
-FROM alpine:latest
+# Use an official AWS CLI image as a base
+FROM amazon/aws-cli:latest
 
-# Install necessary tools
-RUN apk add --no-cache bash tar aws-cli
+# Install kubectl
+RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
+    chmod +x kubectl && \
+    mv kubectl /usr/local/bin/
 
-# Copy backup script
-COPY backup.sh /backup.sh
+# Copy the backup script into the image
+COPY backup_from_aws_cli.sh /usr/local/bin/backup_from_aws_cli.sh
 
-# Set the script as executable
-RUN chmod +x /backup.sh
+# Make the script executable
+RUN chmod +x /usr/local/bin/backup_from_aws_cli.sh
 
-# Set the entrypoint
-ENTRYPOINT ["/backup.sh"]
+# Set the entrypoint to the backup script
+ENTRYPOINT ["/usr/local/bin/backup_from_aws_cli.sh"]
