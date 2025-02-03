@@ -17,30 +17,16 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "true"
-    # nginx.ingress.kubernetes.io/configuration-snippet: |
-    #   rewrite (?i)/tessera-[0-9]?/(.*) /$1 break;
-    #   rewrite (?i)/tessera-[0-9]?$ / break;    
-    #   rewrite (?i)/kibana/(.*) /$1 break;
-    #   rewrite (?i)/kibana$ / break;
+
     nginx.ingress.kubernetes.io/rewrite-target: /
-    #nginx.ingress.kubernetes.io/whitelist-source-range: w.x.y.z/32,a.b.c.d/32
-    # restrict access to cluster only from PERS dns
-    # nginx.ingress.kubernetes.io/server-alias: "pers.ninja, api.pers.ninja, dev.api.pers.ninja"
     nginx.ingress.kubernetes.io/limit-connections: "100"
     nginx.ingress.kubernetes.io/limit-rps: "100"
 
     nginx.ingress.kubernetes.io/enable-access-log: "true"
     nginx.ingress.kubernetes.io/enable-rewrite-log: "true"
 
-    # nginx.ingress.kubernetes.io/server-snippet: |
-    #   if ($request_method !~ ^(GET|POST)$) {
-    #     return 405;
-    #   }
-    #   if ($request_method = "POST") {
-    #     if ($http_x_user_number != "123sfogthsdfpogihjsdfpgfhgjfhjkfhjkfhjkohjsdfg45") {
-    #       return 403;
-    #     }
-    #   }
+    # make nginx log out all info 
+    nginx.ingress.kubernetes.io/log-format: '$remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" "$http_x_forwarded_for" $request_length $request_time [$proxy_upstream_name] [$proxy_alternative_upstream_name] $upstream_addr $upstream_response_length $upstream_response_time $upstream_status'
       
 spec:
   ingressClassName: network-nginx

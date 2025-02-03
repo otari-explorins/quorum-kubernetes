@@ -1,0 +1,52 @@
+---
+# ingress-nginx IngressClass
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  name: loki-ingress-class
+  namespace: quorum
+spec:
+  controller: k8s.io/loki-ingress-controller
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: loki-ingress-name
+  namespace: quorum
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
+spec:
+  ingressClassName: loki-ingress-class
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: loki
+            port:
+              number: 3100
+      # - path: /explorer
+      #   pathType: Prefix
+      #   backend:
+      #     service:
+      #       name: quorum-explorer
+      #       port:
+      #         number: 80
+
+
+# helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+# helm repo update
+# helm install loki-ingress-helm-name ingress-nginx/ingress-nginx \
+#     --namespace quorum \
+#     --set controller.ingressClassResource.name="loki-ingress-class" \
+#     --set controller.ingressClassResource.controllerValue="k8s.io/loki-ingress-controller" \
+#     --set controller.replicaCount=1 \
+#     --set controller.nodeSelector."kubernetes\.io/os"=linux \
+#     --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
+#     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
+#     --set controller.service.externalTrafficPolicy=Local
