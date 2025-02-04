@@ -56,7 +56,7 @@ node:
       memRequest: "1G"
     # privKey:
     # pubKey:
-    dataPath: "/data/besu/202502"
+    dataPath: "/data/besu/202501"
     keysPath: "/keys"
     privateKeyPath: "/keys/nodekey"
     genesisFilePath: "/etc/genesis/genesis.json"
